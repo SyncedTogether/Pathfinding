@@ -6,6 +6,7 @@ let setStartPointButton = document.getElementById("SetStartPoint");
 let randomStartPointButton = document.getElementById("RandomStartPoint");
 let setEndPointButton = document.getElementById("SetEndPoint");
 let randomEndPointButton = document.getElementById("RandomEndPoint");
+let clearButton = document.getElementById("Clear");
 
 let cellSize = 10;
 let cols = cnv.width / cellSize;
@@ -55,7 +56,7 @@ function resetButtons() {
 }
 
 function checkEditStatus() {
-    return createOrDestroySwitch.checked;
+    return !createOrDestroySwitch.checked;
 }
 
 function setEditType() {
@@ -69,6 +70,14 @@ function setEditType() {
 createOrDestroySwitch.addEventListener('change', () => {
     setEditType();
 });
+
+clearButton.addEventListener('click', () => {
+    createGrid();
+    walls = [];
+    startPoint = null;
+    endPoint = null;
+});
+
 
 
 setStartPointButton.addEventListener('click', () => {
@@ -409,16 +418,8 @@ function reconstructPath(node) {
 }
 
 function drawPath(path) {
-    ctx.strokeStyle = "blue";
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    for (let i = 1; i < path.length; i++) {
-        let startX = path[i - 1].x * cellSize + cellSize / 2;
-        let startY = path[i - 1].y * cellSize + cellSize / 2;
-        let endX = path[i].x * cellSize + cellSize / 2;
-        let endY = path[i].y * cellSize + cellSize / 2;
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(endX, endY);
+    for (let i = 1; i < path.length - 1; i++) {
+        ctx.fillStyle = "orange";
+        ctx.fillRect(path[i].x, path[i].y, cellSize, cellSize);
     }
-    ctx.stroke();
 }
