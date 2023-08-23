@@ -8,6 +8,7 @@ let setEndPointButton = document.getElementById("SetEndPoint");
 let randomEndPointButton = document.getElementById("RandomEndPoint");
 let clearButton = document.getElementById("Clear");
 
+
 let cellSize = 10;
 let cols = cnv.width / cellSize;
 let rows = cnv.height / cellSize;
@@ -155,7 +156,7 @@ function init() {
 
 function animate() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
-    drawGrid();
+
     switch (currentEditType) {
         case EditType.CREATE:
             drawPreview();
@@ -175,6 +176,8 @@ function animate() {
         let path = findPathAStar();
         drawPath(path);
     }
+
+    drawGrid();
 
     requestAnimationFrame(animate);
 }
@@ -197,7 +200,7 @@ function drawGrid() {
             if (grid[i][j].active) {
                 ctx.fillStyle = "#5A5A5A";
             } else {
-                ctx.fillStyle = "white";
+                ctx.fillStyle = "rgba(0, 0, 0, 0)";
             }
             if (grid[i][j].startPoint) {
                 ctx.fillStyle = "green";
