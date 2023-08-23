@@ -17,11 +17,30 @@
         </div>
         <div class="panels-container">
             <div class="panel">
-                <p>Radius: </p>
-                <input type="range" min="0.5" max="50" value="1" class="slider" id="influenceRadius">
+                <div class="slider-container">
+                    <p>Radius: </p>
+                    <input type="range" min="0.5" max="6.5" value="1" class="slider" id="influenceRadius">
+                </div>
             </div>
             <div class="panel">
-                <!-- Add another slider or content here if needed -->
+                <div class="checkbox-container">
+                    <p class="smaller-font">Create Walls</p>
+                    <label class="switch-container">
+                        <input type="checkbox" id="CreateOrDestroy">
+                        <span class="switch-slider round"></span>
+                    </label>
+                    <p class="smaller-font">Destroy Walls</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="button-row">
+                        <button class="button" id="SetStartPoint">Set Start Point</button>
+                        <button class="button" id="RandomStartPoint">Randomize Start Point</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="button" id="SetEndPoint">Set End Point</button>
+                        <button class="button" id="RandomEndPoint">Randomize End Point</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer">
