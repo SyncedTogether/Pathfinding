@@ -7,6 +7,7 @@ let randomStartPointButton = document.getElementById("RandomStartPoint");
 let setEndPointButton = document.getElementById("SetEndPoint");
 let randomEndPointButton = document.getElementById("RandomEndPoint");
 let clearButton = document.getElementById("Clear");
+let randomizeAllButton = document.getElementById("RandomizeBothPoints");
 
 
 let cellSize = 10;
@@ -79,6 +80,10 @@ clearButton.addEventListener('click', () => {
     endPoint = null;
 });
 
+randomizeAllButton.addEventListener('click', () => {
+    randomizeStartPoint();
+    randomizeEndPoint();
+});
 
 
 setStartPointButton.addEventListener('click', () => {
